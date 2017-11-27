@@ -27,6 +27,7 @@
     filter: ansible_*
 
 - name: Assign inventory name to unconfigured hostnames (non-CoreOS)
+  become: yes
   hostname:
     name: "{{inventory_hostname}}"
   when: ansible_os_family not in ['CoreOS', 'Container Linux by CoreOS']
